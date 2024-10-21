@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Culross Guided Tour</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAR37J4k2jMvc_BjDeZNcz6cGNDVJi13U&libraries=geometry"></script>
   <script defer src="app.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
@@ -127,16 +127,14 @@
       <button id="startExplainerBtn">Next</button>
     </section>
 
-    <button id="requestLocationBtn" class="hidden">Enable Location Services</button>
-
+    
     <!-- Terms & Privacy Section -->
     <section id="terms" class="hidden">
       <h2>Terms & Conditions and Privacy Policy</h2>
       <div class="read-more-container">
         <div class="read-more-header">Read more</div>
-        <div class="read-more-content">The questions in this section ask about the origins of your grandparents. These questions will ask about the birthplaces, languages, and cultural affiliations of your biological grandparents. You may want to speak with your family and gather that information from your parents or grandparents.</div>
+        <div class="read-more-content">Lorem ipsum text for privacy</div>
       </div>
-      <textarea readonly>Terms & Conditions: [Details...] Privacy Policy: [Details...]</textarea>
       <input type="checkbox" id="acceptTerms"> I accept the Terms & Conditions and Privacy Policy
       <button id="startTourBtn" disabled>Start Tour</button>
       <button id="skipBtn">Skip</button>
@@ -169,10 +167,10 @@
       let currentStopIndex = 0;
       const stops = [
         { 
-          title: "asadsasd",
+          title: "The Pier",
           audio: "audio/pier.mp3",
           text: "Culross often mispronounced ‘Cull Ross’ was once one of Scotland’s busiest ports, it sits on the northern shore of the Firth of Forth before you, strategically located between Scotland’s capital city Edinburgh, 20 miles to the East, and the historical city of Stirling, 17 miles to the west. If you look out across the river you will see the hilly southern shores, at one time nearly 2000 years ago the northern most frontier of the Roman Empire. In 81 AD, the Roman General Agricola erected a series of fortifications between the Firths of Forth and Clyde to secure the empire from the Northern Caledonians. Some 60 years later now in the reign of Emperor Antonious Pius, the fortifications were rebuilt and consolidated into a wall or rampart known as the Vallum Antonini or now the Antonine Wall in honour of the great emperor. Remnants of the structure still exist and its easterly origins lie directly opposite you on the southern shore at Bo’ness and Carriden all the way to the Firth of Clyde 37 miles to the west. Undoubtedly, if we journeyed back 2 millennia the Roman troops, some 1500 miles from home, stationed along the northern frontier would have frequently laid eyes on the banks of Culross and perhaps mistaken you for the rebellious Caledonians. The pier before you gives a hint to Culross’s prominent and prosperous seafaring past however with the introduction of more modern and efficient means of travel, the harbour has seen many changes over the centuries. Where you stand today did not exist in the late 19th century, had this been the 16th and 17th century you would likely be standing on the wooden deck of a coal-laden ship as opposed to dry land. Much of the modern riverfront you see today is land reclaimed, building the railway line which separates the pier from the village behind you. The original harbour wall being some 80 feet behind at the edge of the village Green where there is a line of planted trees and a bus stop. If you peer behind the hedges you will find a large ship's anchor which rests on the 17th-century stone pier structure. Over the years, with more efficient means of travel via rail and road, the pier fell into disrepair, however, local residents have since worked to restore the pier so that you can now walk its length. You can still venture along the pier which affords beautiful riverside views comparable to the ‘Bay of Naples’ as described in Beveridge’s 1885 book on Culross and Tulliallan. Be careful when crossing the railway line, these days trains are very infrequent however it is still an active railway line and be observant of the high tides which can at times make the pier inaccessible. Once you are ready, cross the village green towards the two flag poles before which you’ll find the ornate bust of one of Culross’s most famed residents, Admiral Lord Thomas Alexander Cochrane.", 
-          location: { lat: 56.055, lng: -3.629 } 
+          location: { lat: 56.054746, lng: -3.632035 }, 
         },
         { 
           title: "Town Square", 
@@ -291,24 +289,6 @@
       }
     });
     document.addEventListener("DOMContentLoaded", function() {
-  const requestLocationBtn = document.getElementById("requestLocationBtn");
-
-  if (navigator.geolocation) {
-    requestLocationBtn.classList.remove("hidden");
-
-    requestLocationBtn.addEventListener("click", function() {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        requestLocationBtn.classList.add("hidden");
-        startGeolocationTracking();
-      }, function(error) {
-        console.error("Error getting location: ", error);
-        alert("Please enable location services to use this tour.");
-      });
-    });
-  } else {
-    debugDistance.textContent = "Geolocation is not supported by your browser.";
-  }
-
   function startGeolocationTracking() {
     navigator.geolocation.watchPosition(function(position) {
       const userLocation = {
